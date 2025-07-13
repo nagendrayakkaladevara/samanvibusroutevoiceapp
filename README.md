@@ -214,4 +214,4 @@ If you encounter any issues or have questions:
 
 ---
 
-**Built with ❤️ using React Native and Expo** 
+**Built with ❤️ using React Native and Expo By Sai Nagendra Yakkaladevara** 
