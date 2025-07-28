@@ -46,7 +46,7 @@ export default function HomeScreen() {
           source={require('../../assets/images/samv_logo.png')}
           style={styles.headerImage}
         />
-        <br></br>
+        {/* <br></br> */}
         <Text style={styles.headerTitle}>Bus Routes</Text>
         <Text style={styles.headerSubtitle}>Choose your route</Text>
       </View>
@@ -156,9 +156,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   routeNumber: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#1D1616',
+    fontWeight:600
   },
   emojiRouteNumber: {
     fontSize: 32,

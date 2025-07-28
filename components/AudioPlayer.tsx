@@ -76,9 +76,9 @@ export default function AudioPlayer({
       activeOpacity={0.8}
     >
       {isPlaying ? (
-        <Pause size={20} color="#d95639" />
+        <Pause size={20} color="#1D1616" />
       ) : (
-        <Play size={20} color="#d95639" />
+        <Play size={20} color="#1D1616" />
       )}
     </TouchableOpacity>
   );

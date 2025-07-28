@@ -6,7 +6,7 @@ export const busRoutes: BusRoute[] = [
     routeNumber: '🙂',
     routeName: 'Quick Actions',
     stops: [
-      { id: '1', name: 'Welcome Message', code: '', audioFile: 'DinnerBreak.mp3' },
+      { id: '1', name: 'Welcome Message [Coming soon]', code: '', audioFile: 'DinnerBreak.mp3' },
       { id: '2', name: 'Dinner Break', code: '', audioFile: 'DinnerBreak.mp3' },
       { id: '3', name: 'Washroom Break', code: '', audioFile: 'WashroomBreak.mp3' }
     ]
@@ -281,13 +281,17 @@ export const busRoutes: BusRoute[] = [
   {
     id: '7',
     routeNumber: 'ST - PH02',
-    routeName: 'HYD - PTP ( Via RJY ) Non-AC',
+    routeName: 'HYD - PTP ( Via RJY ) Non-AC [Coming soon]',
     stops: [
-      { id: '1', name: 'Beach Resort', code: 'BR001', audioFile: 'route75_stop1.mp3' },
-      { id: '2', name: 'Pier Plaza', code: 'PP002', audioFile: 'route75_stop2.mp3' },
-      { id: '3', name: 'Boardwalk', code: 'BW003', audioFile: 'route101_stop1.mp3' },
-      { id: '4', name: 'Marina', code: 'MA004', audioFile: 'route101_stop2.mp3' },
-      { id: '5', name: 'Lighthouse Point', code: 'LP005', audioFile: 'route101_stop1.mp3' }
+      { id: '1', name: 'Vijayawada', code: '', audioFile: '1vijayawada.mp3' },
+      { id: '2', name: 'Gannavaram', code: '', audioFile: '2gannavaram.mp3' },
+      { id: '3', name: 'Hanuman Junction', code: '', audioFile: '3Hanumanjunction.mp3' },
+      { id: '4', name: 'Eluru', code: '', audioFile: '4eluru.mp3' },
+      { id: '5', name: 'Gundugolanu', code: '', audioFile: '5gundugolunu.mp3' },
+      { id: '6', name: 'Denduluru', code: '', audioFile: '6denduluru.mp3' },
+      { id: '7', name: 'Bhimadolu', code: '', audioFile: '7bhimadolu.mp3' },
+      { id: '8', name: 'Dobcherla', code: '', audioFile: '8dobacherla.mp3' },
+      { id: '9', name: 'Nallajerlla', code: '', audioFile: '9nallajerla.mp3' },
     ]
   }
 ];

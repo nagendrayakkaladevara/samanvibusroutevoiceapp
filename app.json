@@ -13,7 +13,7 @@
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#d95639"
+        "backgroundColor": "#1D1616"
       },
       "permissions": [
         "android.permission.INTERNET",
