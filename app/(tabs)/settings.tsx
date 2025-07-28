@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Fredoka',
     fontSize: 28,
     color: '#ffffff',
     marginBottom: 4,
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   settingTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Fredoka',
     fontSize: 18,
     color: '#070707',
     marginBottom: 2,
@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
   },
 
   aboutTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Fredoka',
     fontSize: 20,
     color: '#070707',
     marginBottom: 8,
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   featureTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Fredoka',
     fontSize: 18,
     color: '#070707',
     marginBottom: 8,
@@ -294,13 +294,13 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   helpTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Fredoka',
     fontSize: 20,
     color: '#070707',
     marginBottom: 8,
   },
   stepNumber: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Fredoka',
     fontSize: 18,
     color: '#070707',
     marginRight: 8,
@@ -309,7 +309,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   stepTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Fredoka',
     fontSize: 18,
     color: '#070707',
     marginBottom: 2,
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   contactTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Fredoka',
     fontSize: 18,
     color: '#070707',
     marginBottom: 8,

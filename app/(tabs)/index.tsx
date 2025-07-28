@@ -41,7 +41,7 @@ export default function HomeScreen() {
           source={require('../../assets/images/samv_logo.jpg')}
           style={styles.headerImage}
         />
-        <Text style={styles.headerTitle}>Bus Routes</Text>
+        <Text style={styles.headerTitle}>Bus Route</Text>
         <Text style={styles.headerSubtitle}>Choose your route</Text>
       </View>
 
@@ -60,7 +60,7 @@ export default function HomeScreen() {
                 </View>
                 <View style={styles.routeInfo}>
                   <Text style={styles.routeName}>{route.routeName}</Text>
-                  <Text style={styles.stopsCount}>{route.stops.length} stops</Text>
+                  <Text style={styles.stopsCount}>{route.stops.length} {route.routeNumber === 'QA' ? 'actions' : 'stops'}</Text>
                 </View>
                 <ChevronRight size={24} color="#d95639" />
               </View>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   headerTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'Inter_300Light',
     fontSize: 28,
     color: '#ffffff',
     marginBottom: 4,
@@ -136,6 +136,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     marginRight: 12,
+    width: 100,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   routeNumber: {
     fontFamily: 'Fredoka-Bold',
@@ -146,8 +150,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   routeName: {
-    fontFamily: 'Fredoka-Bold',
-    fontSize: 18,
+    fontFamily: 'sans-serif',
+    fontSize: 15,
     color: '#070707',
     marginBottom: 2,
   },

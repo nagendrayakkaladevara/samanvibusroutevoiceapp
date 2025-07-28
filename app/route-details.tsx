@@ -5,6 +5,7 @@ import { ArrowLeft, MapPin, Play, Pause, Volume2 } from 'lucide-react-native';
 import { Audio } from 'expo-av';
 import { busRoutes } from '../data/busRoutes';
 import { BusStop } from '../types/routes';
+import { audioAssets } from './audioAssets';
 
 export default function RouteDetailsScreen() {
   const router = useRouter();
@@ -54,42 +55,43 @@ export default function RouteDetailsScreen() {
         await sound.unloadAsync();
         setSound(null);
       }
-
+  
       if (currentPlayingStop === stop.id) {
         setCurrentPlayingStop(null);
         return;
       }
-
+  
       setIsLoading(true);
       setCurrentPlayingStop(stop.id);
 
-      // Use the two existing audio files for all stops, alternating between them
-      const audioFiles = [
-        require('../assets/audio/route101_stop1.mp3'),
-        require('../assets/audio/route101_stop2.mp3')
-      ];
-      const audioSource = audioFiles[index % audioFiles.length];
-
+      // Extract just the filename from stop.audioFile (handles both full path and filename)
+      const audioFileName = stop.audioFile.split('/').pop();
+      if (!audioFileName) {
+        throw new Error(`Invalid audio file name for stop: ${stop.name}`);
+      }
+      const audioSource = audioAssets[audioFileName];
+      if (!audioSource) {
+        throw new Error(`Audio file not found in assets: ${audioFileName}`);
+      }
+  
       // Load the audio file from assets
       const { sound: newSound } = await Audio.Sound.createAsync(
         audioSource,
         { shouldPlay: true }
       );
-
+  
       setSound(newSound);
-
+  
       // Set up event listeners
       newSound.setOnPlaybackStatusUpdate((status) => {
-        if (status.isLoaded) {
-          if (status.didJustFinish) {
-            setCurrentPlayingStop(null);
-            setSound(null);
-          }
+        if (status.isLoaded && status.didJustFinish) {
+          setCurrentPlayingStop(null);
+          setSound(null);
         }
       });
-
+  
       setIsLoading(false);
-
+  
     } catch (error) {
       console.error('Error playing audio:', error);
       setIsLoading(false);
@@ -160,7 +162,7 @@ export default function RouteDetailsScreen() {
                   </View>
                   <View style={styles.stopInfo}>
                     <Text style={styles.stopName}>{stop.name}</Text>
-                    <Text style={styles.stopCode}>Stop Code: {stop.code}</Text>
+                    {/* <Text style={styles.stopCode}>Stop Code: {stop.code}</Text> */}
                   </View>
                   <View style={styles.playButton}>
                     {currentPlayingStop === stop.id ? (
@@ -280,7 +282,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   stopName: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#070707',
     marginBottom: 2,
