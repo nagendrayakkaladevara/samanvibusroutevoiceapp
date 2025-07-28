@@ -6,6 +6,7 @@ import { Audio } from 'expo-av';
 import { busRoutes } from '../data/busRoutes';
 import { BusStop } from '../types/routes';
 import { audioAssets } from './audioAssets';
+import { isEmoji } from './(tabs)';
 
 export default function RouteDetailsScreen() {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function RouteDetailsScreen() {
 
   const routeNumber = params.routeNumber as string;
   const routeName = params.routeName as string;
-  
+
   // Find the route from the data instead of using params
   const route = busRoutes.find(r => r.routeNumber === routeNumber && r.routeName === routeName);
   const stops: BusStop[] = route?.stops || [];
@@ -55,12 +56,12 @@ export default function RouteDetailsScreen() {
         await sound.unloadAsync();
         setSound(null);
       }
-  
+
       if (currentPlayingStop === stop.id) {
         setCurrentPlayingStop(null);
         return;
       }
-  
+
       setIsLoading(true);
       setCurrentPlayingStop(stop.id);
 
@@ -73,15 +74,15 @@ export default function RouteDetailsScreen() {
       if (!audioSource) {
         throw new Error(`Audio file not found in assets: ${audioFileName}`);
       }
-  
+
       // Load the audio file from assets
       const { sound: newSound } = await Audio.Sound.createAsync(
         audioSource,
         { shouldPlay: true }
       );
-  
+
       setSound(newSound);
-  
+
       // Set up event listeners
       newSound.setOnPlaybackStatusUpdate((status) => {
         if (status.isLoaded && status.didJustFinish) {
@@ -89,9 +90,9 @@ export default function RouteDetailsScreen() {
           setSound(null);
         }
       });
-  
+
       setIsLoading(false);
-  
+
     } catch (error) {
       console.error('Error playing audio:', error);
       setIsLoading(false);
@@ -134,16 +135,16 @@ export default function RouteDetailsScreen() {
           <ArrowLeft size={24} color="#ffffff" />
         </TouchableOpacity>
         <View style={styles.headerContent}>
-          <Text style={styles.routeNumber}>Route {routeNumber}</Text>
-          <Text style={styles.routeName}>{routeName}</Text>
+          <Text style={styles.routeNumber}>{routeName}</Text>
+          {!isEmoji(routeNumber) && <Text style={styles.routeName}>{routeNumber}</Text>}
         </View>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.stopsContainer}>
-          <Text style={styles.stopsTitle}>Bus Stops</Text>
-          <Text style={styles.stopsSubtitle}>Tap any stop to hear the announcement</Text>
-          
+          <Text style={styles.stopsTitle}>{routeName === "Quick Actions" ? 'Actions' : 'Bus stops'}</Text>
+          <Text style={styles.stopsSubtitle}>Tap any {routeName === "Quick Actions" ? 'action' : 'stop'} to hear the announcement</Text>
+
           <View style={styles.stopsList}>
             {stops.map((stop: BusStop, index: number) => (
               <TouchableOpacity
@@ -172,7 +173,7 @@ export default function RouteDetailsScreen() {
                     )}
                   </View>
                 </View>
-                
+
                 {currentPlayingStop === stop.id && (
                   <View style={styles.playingIndicator}>
                     <Volume2 size={16} color="#d95639" />

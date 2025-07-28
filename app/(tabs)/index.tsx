@@ -21,6 +21,11 @@ const transformedBusRoutes: BusRoute[] = busRoutes.map(route => ({
   stops: route.stops.map(stop => stop.name) // Extract just the stop names
 }));
 
+export const isEmoji = (value: string): boolean => {
+  const emojiRegex = /[\u{1F300}-\u{1FAFF}]/u;
+  return emojiRegex.test(value);
+};
+
 export default function HomeScreen() {
   const router = useRouter();
 
@@ -56,11 +61,18 @@ export default function HomeScreen() {
             >
               <View style={styles.routeHeader}>
                 <View style={styles.routeNumberContainer}>
-                  <Text style={styles.routeNumber}>{route.routeNumber}</Text>
+                  <Text
+                    style={[
+                      styles.routeNumber,
+                      isEmoji(route.routeNumber) && styles.emojiRouteNumber
+                    ]}
+                  >
+                    {route.routeNumber}
+                  </Text>
                 </View>
                 <View style={styles.routeInfo}>
                   <Text style={styles.routeName}>{route.routeName}</Text>
-                  <Text style={styles.stopsCount}>{route.stops.length} {route.routeNumber === 'QA' ? 'actions' : 'stops'}</Text>
+                  <Text style={styles.stopsCount}>{route.stops.length} {route.routeName === 'Quick Actions' ? 'actions' : 'stops'}</Text>
                 </View>
                 <ChevronRight size={24} color="#d95639" />
               </View>
@@ -96,7 +108,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   headerTitle: {
-    fontFamily: 'Inter_300Light',
+    // fontFamily: 'Inter_300Light',
+    fontFamily: 'Fredoka-Regular',
     fontSize: 28,
     color: '#ffffff',
     marginBottom: 4,
@@ -145,6 +158,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Fredoka-Bold',
     fontSize: 18,
     color: '#d95639',
+  },
+  emojiRouteNumber: {
+    fontSize: 32,
+    lineHeight: 36,
   },
   routeInfo: {
     flex: 1,
