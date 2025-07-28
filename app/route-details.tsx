@@ -167,16 +167,16 @@ export default function RouteDetailsScreen() {
                   </View>
                   <View style={styles.playButton}>
                     {currentPlayingStop === stop.id ? (
-                      <Pause size={20} color="#d95639" />
+                      <Pause size={20} color="#1D1616" />
                     ) : (
-                      <Play size={20} color="#d95639" />
+                      <Play size={20} color="#1D1616" />
                     )}
                   </View>
                 </View>
 
                 {currentPlayingStop === stop.id && (
                   <View style={styles.playingIndicator}>
-                    <Volume2 size={16} color="#d95639" />
+                    <Volume2 size={16} color="#1D1616" />
                     <Text style={styles.playingText}>
                       {isLoading ? 'Loading audio...' : 'Playing announcement...'}
                     </Text>
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
   },
   header: {
-    backgroundColor: '#d95639',
+    backgroundColor: '#1D1616',
     paddingHorizontal: 16,
     paddingTop: 50,
     paddingBottom: 24,
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   stopsTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 24,
     color: '#070707',
     marginBottom: 4,
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stopNumberContainer: {
-    backgroundColor: '#d95639',
+    backgroundColor: '#1D1616',
     borderRadius: 20,
     width: 40,
     height: 40,
@@ -308,13 +308,13 @@ const styles = StyleSheet.create({
     marginTop: 12,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#d95639',
+    borderTopColor: '#1D1616',
     opacity: 0.7,
   },
   playingText: {
     fontFamily: 'Fredoka-Regular',
     fontSize: 14,
-    color: '#d95639',
+    color: '#1D1616',
     marginLeft: 8,
   },
   errorContainer: {
@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontFamily: 'Fredoka-Bold',
     fontSize: 18,
-    color: '#d95639',
+    color: '#1D1616',
     marginBottom: 24,
   },
 });

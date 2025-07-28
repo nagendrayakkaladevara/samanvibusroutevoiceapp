@@ -1,9 +1,5 @@
 // Mapping of audio file names to static require calls
 export const audioAssets: { [key: string]: any } = {
-  // Root audio files
-  'route101_stop1.mp3': require('../assets/audio/route101_stop1.mp3'),
-  'route101_stop2.mp3': require('../assets/audio/route101_stop2.mp3'),
-
   // HydStops audio files
   '1.Choutuppal.mp3': require('../assets/audio/HydStops/1.Choutuppal.mp3'),
   '2.ramojifilmcity1.mp3': require('../assets/audio/HydStops/2.ramojifilmcity1.mp3'),
@@ -130,7 +126,6 @@ export const audioAssets: { [key: string]: any } = {
   // ST-VH02 audio files
   '1vijayawada.mp3': require('../assets/audio/ST-VH02/1vijayawada.mp3'),
   '2gannavaram.mp3': require('../assets/audio/ST-VH02/2gannavaram.mp3'),
-  '5Hanuman junction.mp3': require('../assets/audio/ST-VH02/5Hanuman junction.mp3'),
   '16devarapali.mp3': require('../assets/audio/ST-VH02/16devarapali.mp3'),
   '23gandepalli.mp3': require('../assets/audio/ST-VH02/23gandepally.mp3'),
   '24jaggampetta.mp3': require('../assets/audio/ST-VH02/24jaggampetta.mp3'),
@@ -146,6 +141,6 @@ export const audioAssets: { [key: string]: any } = {
   '34Visakhapatnam.mp3': require('../assets/audio/ST-VH02/34Visakhapatnam.mp3'),
 
   //Quick Actions files
-  'WashroomBreak.mp3': require('../assets/audio/QA/WashroomBreak.mpeg'),
-  'DinnerBreak.mp3': require('../assets/audio/QA/DinnerBreak.mpeg')
+  'WashroomBreak.mp3': require('../assets/audio/QA/WashroomBreak.mp3'),
+  'DinnerBreak.mp3': require('../assets/audio/QA/DinnerBreak.mp3')
 }; 

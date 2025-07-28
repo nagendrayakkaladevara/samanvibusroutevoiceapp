@@ -43,10 +43,11 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={require('../../assets/images/samv_logo.jpg')}
+          source={require('../../assets/images/samv_logo.png')}
           style={styles.headerImage}
         />
-        <Text style={styles.headerTitle}>Bus Route</Text>
+        <br></br>
+        <Text style={styles.headerTitle}>Bus Routes</Text>
         <Text style={styles.headerSubtitle}>Choose your route</Text>
       </View>
 
@@ -74,11 +75,11 @@ export default function HomeScreen() {
                   <Text style={styles.routeName}>{route.routeName}</Text>
                   <Text style={styles.stopsCount}>{route.stops.length} {route.routeName === 'Quick Actions' ? 'actions' : 'stops'}</Text>
                 </View>
-                <ChevronRight size={24} color="#d95639" />
+                <ChevronRight size={24} color="#1D1616" />
               </View>
 
               <View style={styles.routeIcon}>
-                <Bus size={20} color="#d95639" />
+                <Bus size={20} color="#1D1616" />
               </View>
             </TouchableOpacity>
           ))}
@@ -94,9 +95,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
   },
   header: {
-    backgroundColor: '#d95639',
+    backgroundColor: '#1D1616',
     paddingHorizontal: 16,
-    paddingTop: 50,
+    paddingTop: 30,
     paddingBottom: 24,
     alignItems: 'center',
   },
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     // fontFamily: 'Inter_300Light',
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 28,
     color: '#ffffff',
     marginBottom: 4,
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     marginRight: 12,
-    width: 100,
+    width: 120,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
   routeNumber: {
     fontFamily: 'Fredoka-Bold',
     fontSize: 18,
-    color: '#d95639',
+    color: '#1D1616',
   },
   emojiRouteNumber: {
     fontSize: 32,

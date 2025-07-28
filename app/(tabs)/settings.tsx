@@ -197,13 +197,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    fontFamily: 'Fredoka',
+    fontFamily: 'sans-serif',
     fontSize: 28,
     color: '#ffffff',
     marginBottom: 4,
   },
   headerSubtitle: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 16,
     color: '#ffffff',
     opacity: 0.9,
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   settingTitle: {
-    fontFamily: 'Fredoka',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#070707',
     marginBottom: 2,
