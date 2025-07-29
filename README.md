@@ -63,6 +63,14 @@ Before running this project, make sure you have the following installed:
    - Scan the QR code with Expo Go (Android) or Camera app (iOS)
    - Or press `a` for Android emulator or `i` for iOS simulator
 
+## ⚙️ Development Scripts
+
+Install dependencies and run linting to catch common issues:
+```bash
+npm install
+npm run lint
+```
+
 ## 📁 Project Structure
 
 ```
@@ -150,8 +158,7 @@ To add a new bus route:
 
 ### Styling
 
-The app uses a custom color scheme and typography:
-- Primary Color: `#1D1616` (Orange)
+- Primary Color: `#1D1616` (Dark Brown)
 - Background: `#f8f8f8` (Light Gray)
 - Text: `#070707` (Dark Gray)
 - Fonts: Fredoka (Bold and Regular)
@@ -215,3 +222,4 @@ If you encounter any issues or have questions:
 ---
 
 **Built with ❤️ using React Native and Expo By Sai Nagendra Yakkaladevara** 
+
