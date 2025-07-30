@@ -167,16 +167,16 @@ export default function RouteDetailsScreen() {
                   </View>
                   <View style={styles.playButton}>
                     {currentPlayingStop === stop.id ? (
-                      <Pause size={20} color="#1D1616" />
+                      <Pause size={20} color="#000000" />
                     ) : (
-                      <Play size={20} color="#1D1616" />
+                      <Play size={20} color="#000000" />
                     )}
                   </View>
                 </View>
 
                 {currentPlayingStop === stop.id && (
                   <View style={styles.playingIndicator}>
-                    <Volume2 size={16} color="#1D1616" />
+                    <Volume2 size={16} color="#000000" />
                     <Text style={styles.playingText}>
                       {isLoading ? 'Loading audio...' : 'Playing announcement...'}
                     </Text>
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
   },
   header: {
-    backgroundColor: '#1D1616',
+    backgroundColor: '#000000',
     paddingHorizontal: 16,
     paddingTop: 50,
     paddingBottom: 24,
@@ -226,6 +226,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+    backgroundColor:'#F2F2F2'
   },
   stopsContainer: {
     padding: 16,
@@ -266,7 +267,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stopNumberContainer: {
-    backgroundColor: '#1D1616',
+    backgroundColor: '#000000',
     borderRadius: 20,
     width: 40,
     height: 40,
@@ -308,13 +309,13 @@ const styles = StyleSheet.create({
     marginTop: 12,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#1D1616',
+    borderTopColor: '#000000',
     opacity: 0.7,
   },
   playingText: {
     fontFamily: 'Fredoka-Regular',
     fontSize: 14,
-    color: '#1D1616',
+    color: '#000000',
     marginLeft: 8,
   },
   errorContainer: {
@@ -325,7 +326,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontFamily: 'Fredoka-Bold',
     fontSize: 18,
-    color: '#1D1616',
+    color: '#000000',
     marginBottom: 24,
   },
 });

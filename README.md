@@ -151,7 +151,7 @@ To add a new bus route:
 ### Styling
 
 The app uses a custom color scheme and typography:
-- Primary Color: `#1D1616` (Orange)
+- Primary Color: `#000000` (Orange)
 - Background: `#f8f8f8` (Light Gray)
 - Text: `#070707` (Dark Gray)
 - Fonts: Fredoka (Bold and Regular)

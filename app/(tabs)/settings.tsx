@@ -34,9 +34,9 @@ export default function SettingsScreen() {
             <View style={styles.settingHeader}>
               <View style={styles.settingIcon}>
                 {audioEnabled ? (
-                  <Volume2 size={24} color="#1D1616" />
+                  <Volume2 size={24} color="#000000" />
                 ) : (
-                  <VolumeX size={24} color="#1D1616" />
+                  <VolumeX size={24} color="#000000" />
                 )}
               </View>
               <View style={styles.settingInfo}>
@@ -51,23 +51,23 @@ export default function SettingsScreen() {
           <TouchableOpacity style={styles.settingCard} activeOpacity={0.8} onPress={handleAboutPress}>
             <View style={styles.settingHeader}>
               <View style={styles.settingIcon}>
-                <Info size={24} color="#1D1616" />
+                <Info size={24} color="#000000" />
               </View>
               <View style={styles.settingInfo}>
                 <Text style={styles.settingTitle}>About</Text>
                 <Text style={styles.settingDescription}>App version & info</Text>
               </View>
               {showAbout ? (
-                <ChevronUp size={20} color="#1D1616" />
+                <ChevronUp size={20} color="#000000" />
               ) : (
-                <ChevronDown size={20} color="#1D1616" />
+                <ChevronDown size={20} color="#000000" />
               )}
             </View>
             
             {showAbout && (
               <View style={styles.accordionContent}>
                 <Text style={styles.aboutTitle}>Bus Route Audio Guide</Text>
-                <Text style={styles.aboutVersion}>Version 1.0.0</Text>
+                <Text style={styles.aboutVersion}>Version 1.0.1</Text>
                 
                 <View style={styles.aboutDivider} />
                 
@@ -99,16 +99,16 @@ export default function SettingsScreen() {
           <TouchableOpacity style={styles.settingCard} activeOpacity={0.8} onPress={handleHelpPress}>
             <View style={styles.settingHeader}>
               <View style={styles.settingIcon}>
-                <HelpCircle size={24} color="#1D1616" />
+                <HelpCircle size={24} color="#000000" />
               </View>
               <View style={styles.settingInfo}>
                 <Text style={styles.settingTitle}>Help & Support</Text>
                 <Text style={styles.settingDescription}>Get help using the app</Text>
               </View>
               {showHelp ? (
-                <ChevronUp size={20} color="#1D1616" />
+                <ChevronUp size={20} color="#000000" />
               ) : (
-                <ChevronDown size={20} color="#1D1616" />
+                <ChevronDown size={20} color="#000000" />
               )}
             </View>
             
@@ -151,23 +151,23 @@ export default function SettingsScreen() {
                 <Text style={styles.contactTitle}>Contact Support</Text>
                 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Email', 'support@busrouteguide.com')}>
-                  <Mail size={20} color="#1D1616" />
+                  <Mail size={20} color="#000000" />
                   <Text style={styles.contactText}>support@busrouteguide.com</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Phone', '+1 (555) 123-4567')}>
-                  <Phone size={20} color="#1D1616" />
+                  <Phone size={20} color="#000000" />
                   <Text style={styles.contactText}>+1 (555) 123-4567</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Website', 'www.busrouteguide.com')}>
-                  <Globe size={20} color="#1D1616" />
-                  <Text style={styles.contactText}>www.busrouteguide.com</Text>
+                  <Globe size={20} color="#000000" />
+                  <Text style={styles.contactText}>http://www.samanvitravels.com</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Address', '123 Transit Street, City, State 12345')}>
-                  <MapPin size={20} color="#1D1616" />
-                  <Text style={styles.contactText}>123 Transit Street, City, State 12345</Text>
+                  <MapPin size={20} color="#000000" />
+                  <Text style={styles.contactText}>Honer IDL Acc Rd, near IDL Lake, Prashanti Nagar, Habeeb Nagar, Moosapet, Hyderabad, Telangana 500072.</Text>
                 </TouchableOpacity>
                 
                 <View style={styles.helpDivider} />
@@ -190,9 +190,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
   },
   header: {
-    backgroundColor: '#1D1616',
+    backgroundColor: '#000000',
     paddingHorizontal: 16,
-    paddingTop: 40,
+    paddingTop: 50,
     paddingBottom: 24,
     alignItems: 'center',
   },
@@ -210,6 +210,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+    backgroundColor:'#F2F2F2'
   },
   settingsList: {
     padding: 16,

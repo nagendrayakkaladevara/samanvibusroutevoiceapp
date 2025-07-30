@@ -46,7 +46,6 @@ export default function HomeScreen() {
           source={require('../../assets/images/samv_logo.png')}
           style={styles.headerImage}
         />
-        {/* <br></br> */}
         <Text style={styles.headerTitle}>Bus Routes</Text>
         <Text style={styles.headerSubtitle}>Choose your route</Text>
       </View>
@@ -75,11 +74,11 @@ export default function HomeScreen() {
                   <Text style={styles.routeName}>{route.routeName}</Text>
                   <Text style={styles.stopsCount}>{route.stops.length} {route.routeName === 'Quick Actions' ? 'actions' : 'stops'}</Text>
                 </View>
-                <ChevronRight size={24} color="#1D1616" />
+                <ChevronRight size={24} color="#000000" />
               </View>
 
               <View style={styles.routeIcon}>
-                <Bus size={20} color="#1D1616" />
+                <Bus size={20} color="#000000" />
               </View>
             </TouchableOpacity>
           ))}
@@ -95,9 +94,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
   },
   header: {
-    backgroundColor: '#1D1616',
+    backgroundColor: '#000000',
     paddingHorizontal: 16,
-    paddingTop: 30,
+    paddingTop: 40,
     paddingBottom: 24,
     alignItems: 'center',
   },
@@ -123,6 +122,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+    backgroundColor:'#F2F2F2'
   },
   routesList: {
     padding: 16,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   routeNumber: {
     fontFamily: 'sans-serif',
     fontSize: 18,
-    color: '#1D1616',
+    color: '#000000',
     fontWeight:600
   },
   emojiRouteNumber: {
