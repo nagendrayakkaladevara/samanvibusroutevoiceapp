@@ -34,9 +34,9 @@ export default function SettingsScreen() {
             <View style={styles.settingHeader}>
               <View style={styles.settingIcon}>
                 {audioEnabled ? (
-                  <Volume2 size={24} color="#d95639" />
+                  <Volume2 size={24} color="#000000" />
                 ) : (
-                  <VolumeX size={24} color="#d95639" />
+                  <VolumeX size={24} color="#000000" />
                 )}
               </View>
               <View style={styles.settingInfo}>
@@ -51,23 +51,23 @@ export default function SettingsScreen() {
           <TouchableOpacity style={styles.settingCard} activeOpacity={0.8} onPress={handleAboutPress}>
             <View style={styles.settingHeader}>
               <View style={styles.settingIcon}>
-                <Info size={24} color="#d95639" />
+                <Info size={24} color="#000000" />
               </View>
               <View style={styles.settingInfo}>
                 <Text style={styles.settingTitle}>About</Text>
                 <Text style={styles.settingDescription}>App version & info</Text>
               </View>
               {showAbout ? (
-                <ChevronUp size={20} color="#d95639" />
+                <ChevronUp size={20} color="#000000" />
               ) : (
-                <ChevronDown size={20} color="#d95639" />
+                <ChevronDown size={20} color="#000000" />
               )}
             </View>
             
             {showAbout && (
               <View style={styles.accordionContent}>
                 <Text style={styles.aboutTitle}>Bus Route Audio Guide</Text>
-                <Text style={styles.aboutVersion}>Version 1.0.0</Text>
+                <Text style={styles.aboutVersion}>Version 1.0.1</Text>
                 
                 <View style={styles.aboutDivider} />
                 
@@ -99,16 +99,16 @@ export default function SettingsScreen() {
           <TouchableOpacity style={styles.settingCard} activeOpacity={0.8} onPress={handleHelpPress}>
             <View style={styles.settingHeader}>
               <View style={styles.settingIcon}>
-                <HelpCircle size={24} color="#d95639" />
+                <HelpCircle size={24} color="#000000" />
               </View>
               <View style={styles.settingInfo}>
                 <Text style={styles.settingTitle}>Help & Support</Text>
                 <Text style={styles.settingDescription}>Get help using the app</Text>
               </View>
               {showHelp ? (
-                <ChevronUp size={20} color="#d95639" />
+                <ChevronUp size={20} color="#000000" />
               ) : (
-                <ChevronDown size={20} color="#d95639" />
+                <ChevronDown size={20} color="#000000" />
               )}
             </View>
             
@@ -151,23 +151,23 @@ export default function SettingsScreen() {
                 <Text style={styles.contactTitle}>Contact Support</Text>
                 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Email', 'support@busrouteguide.com')}>
-                  <Mail size={20} color="#d95639" />
+                  <Mail size={20} color="#000000" />
                   <Text style={styles.contactText}>support@busrouteguide.com</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Phone', '+1 (555) 123-4567')}>
-                  <Phone size={20} color="#d95639" />
+                  <Phone size={20} color="#000000" />
                   <Text style={styles.contactText}>+1 (555) 123-4567</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Website', 'www.busrouteguide.com')}>
-                  <Globe size={20} color="#d95639" />
-                  <Text style={styles.contactText}>www.busrouteguide.com</Text>
+                  <Globe size={20} color="#000000" />
+                  <Text style={styles.contactText}>http://www.samanvitravels.com</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity style={styles.contactItem} onPress={() => Alert.alert('Address', '123 Transit Street, City, State 12345')}>
-                  <MapPin size={20} color="#d95639" />
-                  <Text style={styles.contactText}>123 Transit Street, City, State 12345</Text>
+                  <MapPin size={20} color="#000000" />
+                  <Text style={styles.contactText}>Honer IDL Acc Rd, near IDL Lake, Prashanti Nagar, Habeeb Nagar, Moosapet, Hyderabad, Telangana 500072.</Text>
                 </TouchableOpacity>
                 
                 <View style={styles.helpDivider} />
@@ -190,26 +190,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
   },
   header: {
-    backgroundColor: '#d95639',
+    backgroundColor: '#000000',
     paddingHorizontal: 16,
-    paddingTop: 40,
+    paddingTop: 50,
     paddingBottom: 24,
     alignItems: 'center',
   },
   headerTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 28,
     color: '#ffffff',
     marginBottom: 4,
   },
   headerSubtitle: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 16,
     color: '#ffffff',
     opacity: 0.9,
   },
   scrollView: {
     flex: 1,
+    backgroundColor:'#F2F2F2'
   },
   settingsList: {
     padding: 16,
@@ -236,26 +237,26 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   settingTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#070707',
     marginBottom: 2,
   },
   settingDescription: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 14,
     color: '#070707',
     opacity: 0.7,
   },
 
   aboutTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 20,
     color: '#070707',
     marginBottom: 8,
   },
   aboutVersion: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 14,
     color: '#070707',
     opacity: 0.7,
@@ -267,7 +268,7 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   aboutDescription: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 14,
     color: '#070707',
     opacity: 0.7,
@@ -276,31 +277,31 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   featureTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#070707',
     marginBottom: 8,
   },
   featureItem: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 14,
     color: '#070707',
     opacity: 0.7,
   },
   copyrightText: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 14,
     color: '#070707',
     opacity: 0.7,
   },
   helpTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 20,
     color: '#070707',
     marginBottom: 8,
   },
   stepNumber: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#070707',
     marginRight: 8,
@@ -309,13 +310,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   stepTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#070707',
     marginBottom: 2,
   },
   stepDescription: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 14,
     color: '#070707',
     opacity: 0.7,
@@ -327,7 +328,7 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   contactTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#070707',
     marginBottom: 8,
@@ -338,13 +339,13 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   contactText: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 14,
     color: '#070707',
     marginLeft: 8,
   },
   supportHours: {
-    fontFamily: 'Fredoka-Regular',
+    fontFamily: 'sans-serif',
     fontSize: 14,
     color: '#070707',
     opacity: 0.7,

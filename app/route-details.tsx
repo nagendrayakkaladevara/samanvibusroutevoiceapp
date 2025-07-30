@@ -5,6 +5,8 @@ import { ArrowLeft, MapPin, Play, Pause, Volume2 } from 'lucide-react-native';
 import { Audio } from 'expo-av';
 import { busRoutes } from '../data/busRoutes';
 import { BusStop } from '../types/routes';
+import { audioAssets } from './audioAssets';
+import { isEmoji } from './(tabs)';
 
 export default function RouteDetailsScreen() {
   const router = useRouter();
@@ -15,7 +17,7 @@ export default function RouteDetailsScreen() {
 
   const routeNumber = params.routeNumber as string;
   const routeName = params.routeName as string;
-  
+
   // Find the route from the data instead of using params
   const route = busRoutes.find(r => r.routeNumber === routeNumber && r.routeName === routeName);
   const stops: BusStop[] = route?.stops || [];
@@ -63,12 +65,15 @@ export default function RouteDetailsScreen() {
       setIsLoading(true);
       setCurrentPlayingStop(stop.id);
 
-      // Use the two existing audio files for all stops, alternating between them
-      const audioFiles = [
-        require('../assets/audio/route101_stop1.mp3'),
-        require('../assets/audio/route101_stop2.mp3')
-      ];
-      const audioSource = audioFiles[index % audioFiles.length];
+      // Extract just the filename from stop.audioFile (handles both full path and filename)
+      const audioFileName = stop.audioFile.split('/').pop();
+      if (!audioFileName) {
+        throw new Error(`Invalid audio file name for stop: ${stop.name}`);
+      }
+      const audioSource = audioAssets[audioFileName];
+      if (!audioSource) {
+        throw new Error(`Audio file not found in assets: ${audioFileName}`);
+      }
 
       // Load the audio file from assets
       const { sound: newSound } = await Audio.Sound.createAsync(
@@ -80,11 +85,9 @@ export default function RouteDetailsScreen() {
 
       // Set up event listeners
       newSound.setOnPlaybackStatusUpdate((status) => {
-        if (status.isLoaded) {
-          if (status.didJustFinish) {
-            setCurrentPlayingStop(null);
-            setSound(null);
-          }
+        if (status.isLoaded && status.didJustFinish) {
+          setCurrentPlayingStop(null);
+          setSound(null);
         }
       });
 
@@ -132,16 +135,16 @@ export default function RouteDetailsScreen() {
           <ArrowLeft size={24} color="#ffffff" />
         </TouchableOpacity>
         <View style={styles.headerContent}>
-          <Text style={styles.routeNumber}>Route {routeNumber}</Text>
-          <Text style={styles.routeName}>{routeName}</Text>
+          <Text style={styles.routeNumber}>{routeName}</Text>
+          {!isEmoji(routeNumber) && <Text style={styles.routeName}>{routeNumber}</Text>}
         </View>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.stopsContainer}>
-          <Text style={styles.stopsTitle}>Bus Stops</Text>
-          <Text style={styles.stopsSubtitle}>Tap any stop to hear the announcement</Text>
-          
+          <Text style={styles.stopsTitle}>{routeName === "Quick Actions" ? 'Actions' : 'Bus stops'}</Text>
+          <Text style={styles.stopsSubtitle}>Tap any {routeName === "Quick Actions" ? 'action' : 'stop'} to hear the announcement</Text>
+
           <View style={styles.stopsList}>
             {stops.map((stop: BusStop, index: number) => (
               <TouchableOpacity
@@ -160,20 +163,20 @@ export default function RouteDetailsScreen() {
                   </View>
                   <View style={styles.stopInfo}>
                     <Text style={styles.stopName}>{stop.name}</Text>
-                    <Text style={styles.stopCode}>Stop Code: {stop.code}</Text>
+                    {/* <Text style={styles.stopCode}>Stop Code: {stop.code}</Text> */}
                   </View>
                   <View style={styles.playButton}>
                     {currentPlayingStop === stop.id ? (
-                      <Pause size={20} color="#d95639" />
+                      <Pause size={20} color="#000000" />
                     ) : (
-                      <Play size={20} color="#d95639" />
+                      <Play size={20} color="#000000" />
                     )}
                   </View>
                 </View>
-                
+
                 {currentPlayingStop === stop.id && (
                   <View style={styles.playingIndicator}>
-                    <Volume2 size={16} color="#d95639" />
+                    <Volume2 size={16} color="#000000" />
                     <Text style={styles.playingText}>
                       {isLoading ? 'Loading audio...' : 'Playing announcement...'}
                     </Text>
@@ -194,7 +197,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
   },
   header: {
-    backgroundColor: '#d95639',
+    backgroundColor: '#000000',
     paddingHorizontal: 16,
     paddingTop: 50,
     paddingBottom: 24,
@@ -223,12 +226,13 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+    backgroundColor:'#F2F2F2'
   },
   stopsContainer: {
     padding: 16,
   },
   stopsTitle: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 24,
     color: '#070707',
     marginBottom: 4,
@@ -263,7 +267,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stopNumberContainer: {
-    backgroundColor: '#d95639',
+    backgroundColor: '#000000',
     borderRadius: 20,
     width: 40,
     height: 40,
@@ -280,7 +284,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   stopName: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
     color: '#070707',
     marginBottom: 2,
@@ -305,13 +309,13 @@ const styles = StyleSheet.create({
     marginTop: 12,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#d95639',
+    borderTopColor: '#000000',
     opacity: 0.7,
   },
   playingText: {
     fontFamily: 'Fredoka-Regular',
     fontSize: 14,
-    color: '#d95639',
+    color: '#000000',
     marginLeft: 8,
   },
   errorContainer: {
@@ -322,7 +326,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontFamily: 'Fredoka-Bold',
     fontSize: 18,
-    color: '#d95639',
+    color: '#000000',
     marginBottom: 24,
   },
 });

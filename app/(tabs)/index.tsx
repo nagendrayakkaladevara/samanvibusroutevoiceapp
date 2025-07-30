@@ -21,6 +21,11 @@ const transformedBusRoutes: BusRoute[] = busRoutes.map(route => ({
   stops: route.stops.map(stop => stop.name) // Extract just the stop names
 }));
 
+export const isEmoji = (value: string): boolean => {
+  const emojiRegex = /[\u{1F300}-\u{1FAFF}]/u;
+  return emojiRegex.test(value);
+};
+
 export default function HomeScreen() {
   const router = useRouter();
 
@@ -38,7 +43,7 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={require('../../assets/images/samv_logo.jpg')}
+          source={require('../../assets/images/samv_logo.png')}
           style={styles.headerImage}
         />
         <Text style={styles.headerTitle}>Bus Routes</Text>
@@ -56,17 +61,24 @@ export default function HomeScreen() {
             >
               <View style={styles.routeHeader}>
                 <View style={styles.routeNumberContainer}>
-                  <Text style={styles.routeNumber}>{route.routeNumber}</Text>
+                  <Text
+                    style={[
+                      styles.routeNumber,
+                      isEmoji(route.routeNumber) && styles.emojiRouteNumber
+                    ]}
+                  >
+                    {route.routeNumber}
+                  </Text>
                 </View>
                 <View style={styles.routeInfo}>
                   <Text style={styles.routeName}>{route.routeName}</Text>
-                  <Text style={styles.stopsCount}>{route.stops.length} stops</Text>
+                  <Text style={styles.stopsCount}>{route.stops.length} {route.routeName === 'Quick Actions' ? 'actions' : 'stops'}</Text>
                 </View>
-                <ChevronRight size={24} color="#d95639" />
+                <ChevronRight size={24} color="#000000" />
               </View>
 
               <View style={styles.routeIcon}>
-                <Bus size={20} color="#d95639" />
+                <Bus size={20} color="#000000" />
               </View>
             </TouchableOpacity>
           ))}
@@ -82,9 +94,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
   },
   header: {
-    backgroundColor: '#d95639',
+    backgroundColor: '#000000',
     paddingHorizontal: 16,
-    paddingTop: 50,
+    paddingTop: 40,
     paddingBottom: 24,
     alignItems: 'center',
   },
@@ -96,7 +108,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   headerTitle: {
-    fontFamily: 'Fredoka-Bold',
+    // fontFamily: 'Inter_300Light',
+    fontFamily: 'sans-serif',
     fontSize: 28,
     color: '#ffffff',
     marginBottom: 4,
@@ -109,6 +122,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+    backgroundColor:'#F2F2F2'
   },
   routesList: {
     padding: 16,
@@ -136,18 +150,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     marginRight: 12,
+    width: 120,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   routeNumber: {
-    fontFamily: 'Fredoka-Bold',
+    fontFamily: 'sans-serif',
     fontSize: 18,
-    color: '#d95639',
+    color: '#000000',
+    fontWeight:600
+  },
+  emojiRouteNumber: {
+    fontSize: 32,
+    lineHeight: 36,
   },
   routeInfo: {
     flex: 1,
   },
   routeName: {
-    fontFamily: 'Fredoka-Bold',
-    fontSize: 18,
+    fontFamily: 'sans-serif',
+    fontSize: 15,
     color: '#070707',
     marginBottom: 2,
   },
