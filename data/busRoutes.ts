@@ -12,7 +12,7 @@ export const busRoutes: BusRoute[] = [
     ]
   },
   {
-    id: '1',
+    id: '2',
     routeNumber: '🏛️',
     routeName: 'Hyderabad City',
     stops: [
@@ -53,7 +53,7 @@ export const busRoutes: BusRoute[] = [
     ]
   },
   {
-    id: '1',
+    id: '3',
     routeNumber: 'ST - A02',
     routeName: 'HYD - KKD ( Via Mandapeta ) AC',
     stops: [
@@ -92,7 +92,7 @@ export const busRoutes: BusRoute[] = [
     ]
   },
   {
-    id: '2',
+    id: '4',
     routeNumber: 'ST - A04',
     routeName: 'HYD - KKD ( Via RJY ) AC',
     stops: [
@@ -127,7 +127,7 @@ export const busRoutes: BusRoute[] = [
     ]
   },
   {
-    id: '3',
+    id: '5',
     routeNumber: 'ST - A06',
     routeName: 'HYD - KKD ( Via APT ) AC',
     stops: [
@@ -163,7 +163,7 @@ export const busRoutes: BusRoute[] = [
     ]
   },
   {
-    id: '4',
+    id: '6',
     routeNumber: 'ST - VH02',
     routeName: 'HYD - VSKP AC',
     stops: [
@@ -204,7 +204,7 @@ export const busRoutes: BusRoute[] = [
     ]
   },
   {
-    id: '5',
+    id: '7',
     routeNumber: 'ST - 12',
     routeName: 'HYD - KKD ( Via Mandapeta ) Non-AC',
     stops: [
@@ -243,7 +243,7 @@ export const busRoutes: BusRoute[] = [
     ]
   },
   {
-    id: '6',
+    id: '8',
     routeNumber: 'ST - 122',
     routeName: 'HYD - KKD ( Via APT ) Non-AC',
     stops: [
@@ -279,7 +279,7 @@ export const busRoutes: BusRoute[] = [
     ]
   },
   {
-    id: '7',
+    id: '9',
     routeNumber: 'ST - PH02',
     routeName: 'HYD - PTP ( Via RJY ) Non-AC [Coming soon]',
     stops: [
